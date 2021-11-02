@@ -1,16 +1,16 @@
 <?php 
     function printMovie($movie){
         echo "
-        <h2>{$movie->getName()}</h2>
-        <p>{$movie->getDate()}</p>
-        <p>{$movie->getDirector()}</p>
-        <ul>";
+        <h2>Titolo: {$movie->getName()}</h2>
+        <p>Data uscita: {$movie->getDate()}</p>
+        <p>Regista: {$movie->getDirector()}</p>
+        <ul>Generi:";
         $temp = $movie->getGenres();
         foreach($temp as $genre){
             echo "<li>{$genre}</li>";
         };
         echo "</ul>
-        <p>{$movie->getDescription()}</p>
+        <p>Descrizione: {$movie->getDescription()}</p>
         ";
     }
     require __DIR__.('/movie.php');
@@ -23,15 +23,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
     <div>
-        <?php echo printMovie($movie1); ?>
+        <div class="container">
+            <?php echo printMovie($movie1); ?>
+        </div>
+        
         <!-- <?php $movie1->addGenre("mango")?>
         <?php $movie1->removeGenre("horror")?>
         <?php echo printMovie($movie1); ?> -->
-        <?php echo printMovie($movie2); ?>
+
+        <div class="container">
+            <?php echo printMovie($movie2); ?>
+        </div>
     </div>
 </body>
 </html>
