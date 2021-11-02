@@ -8,7 +8,7 @@
 
         public function setName($_name){
             if(strlen($_name)<80){
-                $this->name=$_name;
+                $this->name=strtolower($_name);
             }
         }
         public function getName(){
@@ -24,23 +24,46 @@
         }
         public function setDirector($_director){
             if(strlen($_director)<50){
-                $this->director=$_director;
+                $this->director=strtolower($_director);
             }
         }
         public function getDirector(){
             return $this->director;
         }
         public function setGenres($_genres){
-            if(strlen($_genres)<80){
-                $this->genres=$_genres;
+            if(count($_genres)>0){
+                foreach($_genres as $element){
+                    if(strlen($element)<80){
+                        $this->genres[]=$element;
+                    }    
+                }
             }
+        }
+        public function addGenre($_genre){
+            $_genre=strtolower($_genre);
+            foreach($this->genres as $element){
+                if($_genre==$element){
+                    return false;
+                }
+            }
+            $this->genres[]=$_genre;
+        }
+        public function removeGenre($_genre){
+            $_genre=strtolower($_genre);
+            foreach($this->genres as $index=>$element){
+                if($_genre==$element){
+                    unset($this->genres[$index]);
+                    return true;
+                }
+            }
+            return false;
         }
         public function getGenres(){
             return $this->genres;
         }
         public function setDescription($_description){
             if(strlen($_description)<250){
-                $this->description=$_description;
+                $this->description=strtolower($_description);
             }
         }
         public function getDescription(){

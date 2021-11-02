@@ -28,6 +28,9 @@
 <body>
     <div>
         <?php echo printMovie($movie1); ?>
+        <!-- <?php $movie1->addGenre("mango")?>
+        <?php $movie1->removeGenre("horror")?>
+        <?php echo printMovie($movie1); ?> -->
         <?php echo printMovie($movie2); ?>
     </div>
 </body>
