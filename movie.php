@@ -1,6 +1,5 @@
 <?php
     class Movie{
-
         private $name;
         private $releaseDate;
         private $director;
@@ -47,6 +46,21 @@
         public function getDescription(){
             return $this->description;
         }
+
+        /**
+         * Initializes this xyzRequest.
+         *
+         * Available options:
+         *
+         *  * logging: Whether to enable logging or not (false by default)
+         *
+         * @param  string $_name  name
+         * @param  string $_releasesDate  name
+         * @param  string $_director  name
+         * @param  array $_genres  name
+         * @param  string $_description  name
+         *
+         */
         public function __construct($_name,$_releaseDate,$_director,$_genres,$_description){
             $this->setName($_name);
             $this->setDate($_releaseDate);
